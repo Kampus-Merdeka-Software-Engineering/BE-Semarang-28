@@ -3,10 +3,17 @@ import db from "../config/Database.js";
 
 
 const User = db.define("User", {
-  User_id: {
-    type: DataTypes.INTEGER,
-    primaryKey: true,
-    autoIncrement: true,
+  uuid: {
+    type: DataTypes.STRING,
+    defaultValue: DataTypes.UUIDV4,
+    allowNull: false,
+    validate:{
+      notEmpty: true
+    }
+  },
+  username: {
+    type: DataTypes.STRING,
+    len : [3,12]
   },
   name: {
     type: DataTypes.STRING,
@@ -23,6 +30,7 @@ const User = db.define("User", {
     type: DataTypes.STRING,
   },
 });
+
 
 export default User;
 

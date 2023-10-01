@@ -4,16 +4,29 @@ import DoctorRoute from "./routes/DoctorRoute.js";
 import UserRoute from "./routes/UserRoute.js";
 import BookingRoute from "./routes/BookingRoute.js";
 import cors from "cors";
-import loggerMiddleware from "./middleware/logger.js"
+import loggerMiddleware from "./middleware/logger.js";
+import session from "express-session";
 
+dotenv.config();
 
 const PORT = process.env.PORT || 3000
 const app = express();
 
-dotenv.config();
-app.use(express.json());
-app.use(cors());
 
+app.use(express.json());
+app.use(cors({
+  credentials: true,
+  origin: []
+}));
+
+session({
+  secret: process.env.SESS_SECRET,
+  saveUninitialized: true,
+  resave: false,
+  cookie: {
+      secure: 'auto'
+  }
+});
 
 app.use(loggerMiddleware); 
 
