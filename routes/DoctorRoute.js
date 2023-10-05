@@ -4,6 +4,9 @@ import {AddDoctor, findAllDoctors,
 
 const router = express.Router();
 
-router.get("/doctors", findAllDoctors);
+// router.get("/doctors/:name", )
+
+router.get("/api/doctors", findAllDoctors);
 router.post("/doctors", AddDoctor);
+
 export default router;

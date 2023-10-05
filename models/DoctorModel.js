@@ -11,8 +11,12 @@ const Doctor = db.define("Doctor", {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-            len: [3, 100],
+        len: [3, 100],
         },
+    },
+    clinic:{
+        type: DataTypes.STRING,
+        primaryKey: true,
     },
     availability_days: {
         type: DataTypes.STRING,

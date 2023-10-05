@@ -3,6 +3,11 @@ import db from "../config/Database.js";
 
 
 const User = db.define("User", {
+  userID: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+},
   uuid: {
     type: DataTypes.STRING,
     defaultValue: DataTypes.UUIDV4,
@@ -19,7 +24,7 @@ const User = db.define("User", {
     type: DataTypes.STRING,
     len : [3,100]
   },
-  phone_number: {
+  phoneNumber: {
     type: DataTypes.STRING,
   },
   email: {

@@ -8,13 +8,16 @@ const Booking = db.define("booking", {
     primaryKey: true,
     autoIncrement: true,
   },
-  doctor: {
+  Appointment_Doctor: {
+    type: DataTypes.STRING,
+  },
+  clinic: {
     type: DataTypes.STRING,
   },
   appointment_time: {
     type: DataTypes.DATE,
   },
-  User_id: {
+  userUUID: {
     type: DataTypes.INTEGER,
   },
 });
