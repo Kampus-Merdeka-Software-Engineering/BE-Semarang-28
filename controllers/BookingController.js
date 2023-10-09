@@ -11,16 +11,14 @@ export const createBooking = async (req, res) => {
 
 export const getBookingsfromUser = async (req, res) => {
   try {
-    const { patientname } = req.params; 
-    const bookings = await Booking.findOne({
-      where: { patientname: patientname }, 
-    });
+    const bookings = await Booking.findAll();
 
     res.status(200).json(bookings);
   } catch (error) {
     res.send(error.message);
   }
 };
+
 
 
 
